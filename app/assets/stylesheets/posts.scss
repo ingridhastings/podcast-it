@@ -1,0 +1,224 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.notice {
+  margin-top: 20px;
+  text-align: center;
+  font-family: Neuton;
+  font-size: 1.8em;
+  color: #c0392b;
+  text-decoration: underline;
+}
+
+.hide-notice, .notice{
+    -moz-animation: cssAnimation 0s ease-in 4s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 4s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 4s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 4s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    @keyframes cssAnimation {
+        to {
+            font-size: 0.01em;
+            color:white;
+            width:0;
+            height:0;
+            overflow:hidden;
+        }
+    }
+    @-webkit-keyframes cssAnimation {
+        to {
+            display:none;
+            color: white;
+            background-color: none;
+            width:0;
+            height:0;
+            visibility:hidden;
+        }
+    }
+}
+
+Body sass
+
+
+.logo{
+  margin-top: 0px;
+  position: absolute;
+}
+
+.wrapper-form, .wrapper-list {
+  display:flex;
+  flex-flow: row wrap;
+
+  .page-header {
+    border-bottom: none !important;
+    flex: 1 100%;
+    font-size: 3.7em;
+    font-family: Montserrat;
+  }
+  .add-post-symbol {
+    flex: 1 100%;
+  }
+  .btn-primary {
+    color: #FFF !important;
+    background-color: #c0392b !important;
+    border-color: #c0392b !important;
+   }
+   .new {
+     margin-bottom: 10px;
+     margin-top: 10px;
+   }
+   .home {
+     margin-top: 1.6em;
+   }
+}
+
+.wrapper-list {
+  padding-left: 0px;
+  .page-header{
+    margin-left: -5%;
+  }
+}
+
+.wrapper-form {
+  justify-content: center;
+  text-align: center;
+  .page-header {
+    margin-bottom: 40px;
+  }
+  .error {
+    border: 2px solid red;
+  }
+  .home {
+    flex: 1 60%;
+    margin-bottom: 20px;
+  }
+}
+
+.container {
+  width: 80%;
+}
+
+.posts {
+  display: flex;
+  font-size: 1em;
+  .post-separation {
+    width: 95%;
+    border-bottom: 1px solid rgba(249,0,0,.2);
+  }
+  ol {
+    width: 100%;
+    padding-left: 0px;
+    li {
+      -webkit-padding-start: 35px;
+      margin-top: 15px;
+    }
+    .votes {
+      font-family: Neuton;
+      float:left;
+      height: 4.55em;
+      margin-right: 8px;
+      margin-left: 4px;
+    }
+    .post-content {
+      font-family: Neuton;
+      .post-title {
+        font-size: 1.4em;
+      }
+      .edit-link {
+        margin-right: 5px;
+        color: #23527C;
+      }
+      .delete-link{
+        color: #23527C;
+      }
+      .username {
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.field_with_errors {
+  display:inline;
+
+}
+
+.new_post, .edit_post {
+    width: 65%;
+    .select {
+      text-align: center;
+      width: 50%;
+      margin: auto;
+    }
+  }
+
+
+.select {
+  color: rgb(164,154,153)
+}
+
+// Devise Css
+
+.new_user {
+  flex:1 80%;
+}
+
+@media (max-width: 900px) {
+  .posts {
+    .post-separation {
+    }
+  }
+  .logo {
+    margin-left: 10px;
+  }
+  .pull-right {
+    margin-right: 5px;
+  }
+
+
+}
+
+@media all and (max-width: 500px) {
+  .logo {
+    margin-left: 10px;
+  }
+  .pull-right {
+    margin-right: 5px;
+  }
+
+  .container {
+    width: 100%;
+    .post-url {
+      display:none;
+    }
+  }
+  .add-post-symbol {
+    margin-left: 10px  ;
+  }
+
+  .page-header {
+    margin-left: 10px !important;
+  }
+
+  .new_post, .edit_post {
+      .select {
+        text-align: center;
+        width: 100%;
+        margin: auto;
+      }
+    }
+
+  ol {
+    padding-left: 15px !important;
+    .post-content{
+      width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+}

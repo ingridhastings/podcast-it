@@ -1,0 +1,35 @@
+<div class="wrapper-list container">
+  <h1 class="page-header"> Podcast It </h1>
+  <div class= "add-post-symbol">
+    <%= link_to "New Podcast", :new_post, class:"btn btn-primary new" %>
+  </div>
+</div>
+
+<div class="container posts">
+  <ol>
+    <% @posts.each do |post| %>
+    
+      <li>
+        <div class="votes">
+          <%= link_to (image_tag ("up_arrow.png")), [:upvote, id: post.id] %>
+          <%= post.votes %>
+          <%= link_to (image_tag ("down_arrow.png")), [:downvote, id: post.id] %>
+        </div>
+        
+        <div class="post-content">
+          <%= link_to post.title.to_s, [:post, id: post.id], class: "post-title" %>
+          <span class="post-url">(<%= truncate(post.link, length: 35) %>)</span>
+          <br>
+          <%= distance_of_time_in_words_to_now(post.created_at) %> by <%= post.user[:username]%>
+          <br>
+          <% if current_user == post.user %>
+            <%= link_to "Edit", [:edit_post, id: post.id], class: "edit-link" %>
+            <%= link_to "Delete", [:post, id: post.id], method: 'delete', data: {confirm: 'Are you sure?'}, class: "delete-link" %>
+          <% end %>
+        </div>
+      </li>
+      <div class="post-separation">
+      </div>
+    <% end %>
+  </ol>
+</div>

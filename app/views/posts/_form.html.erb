@@ -1,0 +1,15 @@
+<%= form_for @post do |f| %>
+  <div class="form-group <%= 'error' if @post.errors[:title].any? %>">
+    <%= f.text_field :title, :placeholder=> "Podcast Title", class: "form-control" %>
+  </div>
+
+  <div class="form-group <%= 'error' if @post.errors[:link].any? %>">
+    <%= f.text_field :link, :placeholder=> "Link Url", class: "form-control"  %>
+  </div>
+
+  <div>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+
+
+<%end%>
