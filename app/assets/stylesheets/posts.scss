@@ -222,3 +222,12 @@ Body sass
   }
 
 }
+
+.votes {
+  a{
+    color: #C0392B;
+    &:hover {
+      color: lighten(#C0392B, 20%);
+    }
+  }
+}
