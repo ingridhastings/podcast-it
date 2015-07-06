@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  ddef index
+  def index
     @posts = Post.all.order('votes desc')
   end
 
@@ -51,6 +51,23 @@ class PostsController < ApplicationController
     @post = Post.find params[:id]
     @post.destroy
     redirect_to :root, notice: "Post Deleted"
+  end
+
+  # def upvote
+  #   @post = Post.find(params[:id])
+  #   @post.upvote_by current_user
+  #   redirect_to post_path
+  # end
+  #
+  #
+  # def downvote
+  #   @post = Post.find(params[:id])
+  #   @post.downvote_by current_user
+  #   redirect_to post_path
+  # end
+
+  def score
+    self.get_upvotes.size - self.get_downvotes.size
   end
 
   def upvote

@@ -8,14 +8,21 @@
 <div class="container posts">
   <ol>
     <% @posts.each do |post| %>
-    
+
       <li>
         <div class="votes">
           <%= link_to (image_tag ("up_arrow.png")), [:upvote, id: post.id] %>
           <%= post.votes %>
           <%= link_to (image_tag ("down_arrow.png")), [:downvote, id: post.id] %>
         </div>
-        
+
+
+
+        <!-- link_to "upvote", like_post_path(post), method: :put
+        link_to "downvote", dislike_post_path(post), method: :put -->
+
+
+
         <div class="post-content">
           <%= link_to post.title.to_s, [:post, id: post.id], class: "post-title" %>
           <span class="post-url">(<%= truncate(post.link, length: 35) %>)</span>
